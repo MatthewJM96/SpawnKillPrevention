@@ -29,7 +29,7 @@ public class SpawnKillPrevention extends JavaPlugin {
 	 * Declare some variables
 	 */
 	protected static File configFile;
-	public static SpawnKillPrevention plugin = (SpawnKillPrevention) Bukkit.getServer().getPluginManager().getPlugin("SpawnKillPrevention");
+	public static SpawnKillPrevention plugin;
 	
 	/**
 	 * Declaring all config value variables
@@ -86,6 +86,7 @@ public class SpawnKillPrevention extends JavaPlugin {
 	 */
 	PluginDescriptionFile pdfFile = this.getDescription();
 	getLogger().info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " is enabled");
+	plugin = this;
 		
 		
 	/**

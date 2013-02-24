@@ -7,7 +7,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.github.SamThePsychoticLeprechaun.SpawnKillPrevention.SpawnKillPrevention;
 import com.github.SamThePsychoticLeprechaun.SpawnKillPrevention.Protected.AddPlayer;
 
 public class AddPlayerCommand {
@@ -15,8 +14,6 @@ public class AddPlayerCommand {
 	
 	
 	public static void addPlayer(CommandSender sender, String player) {
-		
-		String messageOnProtect = SpawnKillPrevention.warnonprotectionmessage;
 		
 		List<Player> possiblePlayers = Bukkit.getServer().matchPlayer(player);
 		
@@ -32,7 +29,6 @@ public class AddPlayerCommand {
 		String messageToSender = ChatColor.DARK_RED + player + ChatColor.WHITE + " has been protected!";
 		
 		AddPlayer.addPlayer(playerTarget);
-		playerTarget.sendMessage(messageOnProtect);
 		sender.sendMessage(messageToSender);
 		
 	}
