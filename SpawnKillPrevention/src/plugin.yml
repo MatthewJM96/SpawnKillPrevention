@@ -1,0 +1,30 @@
+main: com.github.SamThePsychoticLeprechaun.SpawnKillPrevention.SpawnKillPrevention
+name: Spawn Kill Prevention
+version: 0.2
+description: This Plug-in offers a widely customisable solution to the troubles of spawn killing on servers.
+author: SamThePsychoticLeprechaun (a.k.a. Cheezbuns)
+commands:
+    SpawnKillPrevention:
+        description: This command checks to ensure the plug-in is installed and working correctly.
+        aliases: SKP
+        permission: SpawnKillPrevention.common.usage
+        permission-message: You do not have <permission>
+permissions:
+    SKP.admin.*:
+        description: Gives access to all admin permissions
+        children:
+            SpawnKillPrevention.admin.plugin: true
+            SpawnKillPrevention.admin.list: true
+            SpawnKillPrevention.admin.addplayer: true
+    SpawnKillPrevention.admin.plugin:
+        description: Gives access to the command "/SKP Plugin".
+        default: op
+    SpawnKillPrevention.admin.list:
+        description: Gives access to the command "/SKP List".
+        default: op
+    SpawnKillPrevention.admin.addplayer:
+        description: Gives access to the command "/SKP Add".
+        default: op
+    SpawnKillPrevention.common.usage:
+        description: Gives access to the base command "/SKP".
+        default: true

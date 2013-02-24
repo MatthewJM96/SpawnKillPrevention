@@ -1,0 +1,218 @@
+###############################################
+#/-------------------------------------------\#
+#|       Spawn Kill Prevention Config        |#
+#\-------------------------------------------/#
+###############################################
+
+
+#-----------#
+#   NOTES   #
+#-----------#
+
+# When configuring this file:
+
+# Do NOT use tab, use standard spaces (2 spaces are roughly equal to a tab)
+# To avoid this, I recommend using Notepad++ over the standard Notepad (Google it if you don't already have it)
+# When using Notepad++ you can change tabs to be replaced by a configurable number of spaces by going to the
+# Settings tool bar option, then to Preferences and finally to Language Menu/Tab Settings.
+
+# Do NOT change the format of the files; i.e. if an option is indented, don't remove the indentation.
+
+# If you want to add extra information for extra ease of use; all comment lines should start with a hashtag.
+    # Hopefully adding extra comments should be unneseccary as I
+    # Aim to keep this config file as well explained as I can.
+
+# When changing strings (such as messages to players), make sure any apostrophes are "escaped"; i.e. "can''t"
+# Rather than "can't" - rather than one apostrophe, use two.
+
+
+#-------------------------#
+#   Protection Settings   #
+#-------------------------#
+
+# This will provide spawn protection properties to players that have just logged in when 'true'.
+# They will be constrained in the same ways as killed players.
+# When 'false' players are, needless to say, not protected when they log in.
+protectplayeronlogin: true
+
+# This will provide spawn protection properties to players that have been killed by another player when 'true'.
+# When 'false' players killed by other players will NOT be protected on respawn.
+protectplayeronkill: true
+
+# This will provide spawn protection properties to players that have been killed by any cause other than
+# another player attacking them. (i.e. Fall damage, lava, mobs etc.).
+# NOTE: Falling damage cause through PvP will also be attributed to this form of death.
+# When 'false' players will NOT be protected for after such deaths on respawn.
+protectplayerondeath: false
+
+# When 'true' player's that respawn with protection recieve a message telling them.
+warnonprotection: true
+
+#This is the message players recieve when they respawn with protection.
+warnonprotectionmessage: 'You have been given Spawn Protection!'
+
+# When 'true' player's that have their protection removed recieve a message notifying them of the removal.
+warnonprotectionlost: true
+
+#This is the message players recieve when their protection is removed.
+warnonlostprotectionmessage: 'You have lost your Spawn Protection!'
+
+# This is the time, in seconds, that a protected player will remain protected.
+# Set to -1 if you do not wish to have a time limit on the spawn protection.
+protectionperiod: 45
+
+# This is the distance, in blocks, that a protected player may travel from their spawn point before
+# protection is removed.
+# Set to -1 if you do not wish to have a distance limit on the spawn protection.
+distancetravelledlimit: 40
+
+# This determines whether the plugin should consider vertical movement when forming the maximum distance
+# a player may travel from their spawn location before it is removed.
+incorporateverticaltravel: true
+
+# When 'true', the protection of a player is removed when they equip a weapon.
+removeprotectiononweaponequip: true
+
+# When 'true', the protection of a player is removed when they attack another player (regardless of item
+# equipped).
+removeprotectiononattack: true
+
+# When 'true', the protection of a player is removed when they attack another player with a weapon.
+removeprotectiononattackwithweapon: false
+
+# This is a list of items considered as weapons by this plug-in.
+# Use http://minecraft-ids.grahamedgecombe.com/ to get item IDs of items you wish to add.
+weaponlist:
+  - 267
+  - 268
+  - 272
+  - 276
+  - 283
+  - 261
+
+# This is the protection multiplier that protected players get from PvP attacks, 100 being the highest (no damage) and 0 being
+# the lowest (100% damage taken).
+# NOTE: This MUST be kept as an integer, i.e. no decimals.
+damageprotectionmult: 100
+
+# If set to true, a protected player is protected from mobs (i.e. skeletons)
+protectfromenvironment: true
+
+#This is the protection multiplier that protected players get from PvE attacks, 100 being the highest (no damage) and 0 being
+# the lowest (100% damage taken)
+# NOTE: This MUST be kept as an integer, i.e. no decimals.
+environmentprotectionmult: 30
+
+# This is the experience retention multiplier that protected players get, 100 being the highest (retain all exp)
+# and 0 being the lowest (lose all exp).
+# NOTE: This does not affect their first death, but any subsequent deaths while protected.
+# NOTE: This MUST be kept as an integer, i.e. no decimals.
+expretentionmult: 100
+
+# This is the damage dealt multiplier that a protected player gets - the damage reduction on each hit they make on a
+# player while they are protected - 100 being they deal full damage and 0 being they deal no damage.
+damagedealtmult: 20
+
+#--------------------------------#
+#   Warn and Response Settings   #
+#--------------------------------#
+
+# This is the warning that a player that has attacked a protected player.
+warnofprotectedplayer: 'You are attacking a newly spawned player, give them a chance!'
+
+# This determines the number of times a player must spawn kill until they receive their first warning
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%
+spawnkillstofirstwarn: 1
+
+# This is the warning that a player will recieve as their first warning.
+firstwarn: 'You have just spawn killed a protected player, if you kill two more protected players you will be kicked.'
+
+# This is the time (in seconds) until one of a player's counts of spawn killing will be removed up until they reach their second warning.
+# NOTE: The delay resets after each spawn kill.
+# NOTE: This will have no effect if damage protection is 100%.
+firstkilldiscountdelay: 300
+
+# This determines the number of times a player must spawn kill until a message is sent to those with permission
+# SpawnKillPrevention.admin.recieve (or SKP.admin.*) warning of the player's attacks.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstofirstadminwarn: 3
+
+# This determines the number of times a player must spawn kill until they are kicked.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstokick: 4
+
+# This is the message that any player that is kicked for spawn killing recieves as the reason.
+# Keep it short, they won't be on the kick reason page in their client for long.
+messageonkick: 'Kicked for Spawn Killing!'
+
+# This determines the number of times a player must spawn kill until they receive their second warning.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstosecondwarn: 5
+
+# This is the warning that a player will recieve as their second warning.
+secondwarn: 'You have spawn killed many protected players, if you kill two more protected players you will be banned for 24 hours.'
+
+# This is the time (in seconds) until one of a player's counts of spawn killing will be removed up until they are temp. banned.
+# NOTE: The delay resets after each spawn kill.
+# NOTE: This will have no effect if damage protection is 100%.
+secondkilldiscountdelay: 600
+
+# This determines the number of times a player must spawn kill until a message is sent to those with permission
+# SpawnKillPrevention.admin.recieve (or SKP.admin.*) warning of the player's attacks.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstosecondadminwarn: 7
+
+# This determines the number of times a player must spawn kill until they are temporarily banned.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstotempban: 7
+
+# This is the message that any player that is temp banned for spawn killing recieves as the reason.
+# Keep it short, they won't be on the ban reason page in their client for long.
+messageontempban: 'Banned for 24 hours for Spawn Killing!'
+
+# This determines the duration of a player's temp. ban in hours.
+# NOTE: This will have no effect if damage protection is 100%.
+tempbanduration: 24
+
+# This is the time (in seconds) until one of a players counts of spawn killing will be removed.
+# NOTE: The delay resets after each spawn kill.
+# NOTE: This will have no effect if damage protection is 100%.
+thirdkilldiscountdelay: 900
+
+# This determines the number of times a player must spawn kill until they recieve their third warning.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstothirdwarn: 8
+
+# This is the warning that a player will recieve as their third warning.
+thirdwarn: 'You have spawn killed many protected players, if you kill two more protected players you will be banned permanently.'
+
+# This determines the number of times a player must spawn kill until they are permanently banned.
+# Set to -1 to disable (Jumps to next enabled option if available).
+# NOTE: All admins with permission SpawnKillPrevention.admin.recieve (or SKP.admin.*) will be warned of perma bans.
+# NOTE: This will have no effect if damage protection is 100%.
+spawnkillstopermaban: 10
+
+# This is the message that any player that is parmanently banned for spawn killing recieves as the reason.
+# Keep it short, they won't be on the kick reason page in their client for long.
+messageonban: 'Banned for Spawn Killing!'
+
+#------------------#
+#   SQL Settings   #
+#------------------#
+
+# These settings are for setting up your SQL Server
+# NOTE: Currently this server fully depends on the SQL Server until a work around is found.
+Server: 'localhost'
+Port: 3306
+User: 'Bob'
+Password: 'Bob'
+Database: 'minecraft'
+
+
